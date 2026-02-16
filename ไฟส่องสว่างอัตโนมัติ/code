@@ -1,0 +1,29 @@
+
+const int ldrPin = 2;    
+const int relayPin = 7;  
+
+void setup() {
+  pinMode(ldrPin, INPUT);     
+  pinMode(relayPin, OUTPUT);  
+  
+  
+  digitalWrite(relayPin, HIGH); 
+  
+  Serial.begin(9600); 
+}
+
+void loop() {
+  int lightStatus = digitalRead(ldrPin); 
+
+  if (lightStatus == HIGH) { 
+    
+    digitalWrite(relayPin,LOW );  
+    Serial.println("It's Bright - Light OFF");
+  } else {
+    
+    digitalWrite(relayPin,HIGH); 
+    Serial.println("It's Dark - Light ON");
+  }
+
+  delay(500); 
+}
